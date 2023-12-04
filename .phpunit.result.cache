@@ -1,1 +1,1 @@
-{"version":1,"defects":[],"times":[]}
+{"version":1,"defects":{"Warning":6,"test\\unit\\RouterTest::it_registered_a_route":4,"App\\test\\unit\\RouterTest::it_registered_a_route":3,"Error":4,"App\\test\\unit\\RouterTest::throws_exception_when_no_route with data set #0":3},"times":{"Warning":0.127,"test\\unit\\RouterTest::it_registered_a_route":0.077,"App\\test\\unit\\RouterTest::it_registered_a_route":0.065,"App\\test\\unit\\RouterTest::no_routes_when_router_is_created":0.021,"Error":0.013,"App\\test\\unit\\RouterTest::throws_exception_when_no_route with data set #0":0.018}}

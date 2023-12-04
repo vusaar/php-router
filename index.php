@@ -6,10 +6,19 @@
  
     $router = new App\Router();
 
-    $router->addRoute('GET','/', function (){
+    $router->addRoute('GET','/index.php', function (){
 
-          echo "inside index route";
+          echo "<p>inside index route</p>";
     });
+
+
+    $router->addRoute('GET','/login', function (){
+
+        echo "<p>login route</p>";
+  });
+
+
+  $router->addRoute('GET','/users', ['App\Users','index']);
 
 
     $router->matchRoute();
