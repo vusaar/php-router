@@ -2,16 +2,24 @@
 
   namespace App;
 
-  
+  use DI\Container;
 
   class Router{
 
     
-
   /*
        store routes here
   */
       protected $routes = [];
+
+      protected $di_container;
+
+
+      function __construct()
+      {
+         $this->di_container = new Container();
+      }
+
 
       public function addRoute(string $method, string $url, $target){
 
@@ -76,12 +84,6 @@
 
              if($routeUrl === $url){
 
-                if(is_callable($target)){
-                  
-                   return call_user_func($target);
-                  
-                }
-
 
                 if(is_array($target)){
 
@@ -90,10 +92,15 @@
 
                      if(class_exists($myclass,true)){
 
-                        $class = new $myclass();
+                       // $class = new $myclass();
+
+                       $class  = $this->di_container->get($myclass);
+
+                       //var_dump($class); return;
 
                         if(method_exists($class,$method)){
                             
+                              
                              return call_user_func_array([$class,$method],[]);
 
                         }
@@ -101,7 +108,14 @@
                      }
 
                 }
+
+                if(is_callable($target)){
+
+                  //var_dump($target); return;
                  
+                  return call_user_func($target);
+                 
+               }
 
              }
 

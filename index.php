@@ -18,7 +18,7 @@
   });
 
 
-  $router->addRoute('GET','/users', ['App\Users','index']);
+  $router->addRoute('GET','/users', ['App\UsersController','index']);
 
 
     $router->matchRoute();
